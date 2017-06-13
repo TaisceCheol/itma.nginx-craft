@@ -4,6 +4,9 @@ FROM funkygibbon/nginx-pagespeed
 RUN mkdir -p /var/www/public && \
 	mkdir -p /var/www/craft
 
+# remove default funkygibbons servers
+RUN rm /etc/nginx/sites-enabled/*
+
 COPY nginx.conf /etc/nginx/
 COPY itma.ie.conf /etc/nginx/sites-available/
 COPY fastcgi_params /etc/nginx/
